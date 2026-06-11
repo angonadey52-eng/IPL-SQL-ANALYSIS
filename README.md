@@ -4,17 +4,17 @@ Most cricket analytics rely on superficial leaderboard metrics (highest runs, hi
 
 By querying raw player databases, we isolate high-impact athletes who balance raw volume with critical efficiency benchmarks (such as Strike Rate $\ge 130$ and Economy Rate $< 7.0$).
 
-🔍 The Scouting Framework & Analytical Questions
+**🔍Analytical Questions**
 
-We constructed standard query frameworks to translate sports logic into database questions:
-
-The Multi-Season Anchor: Which batsman consistently delivered elite run volume across consecutive seasons (2018–2019)?
-
-Aggressive Efficiency: Which batsmen scored heavily while maintaining a Strike Rate $\ge 130$ under high pressure?
-
-The Boundary Catalyst: Who maximized run rates by hitting boundaries (Fours + Sixes) rather than relying on risky running between the wickets?
-
-The Defensive Weapon: Which bowlers consistently took wickets while keeping their tournament Economy Rate strictly under $7$ runs per over?
+ /*Which bowler took the most wickets in the 2018 season?*/
+ /*Which batsmen scored the most runs in the 2018 season while maintaining an average strike rate of at least 130?*/
+/*Which bowlers took the most wickets in the 2018 season while maintaining an economy rate of less than 7 runs per over?*/
+/* Which batsmen scored the most runs across both 2018 and 2019 seasons?*/
+/*Which batsmen has hit the maximum number of boundaries in 2018, combining 4s and 6s?*/
+/* Name the bowlers who have got 4 wickets haul in 2019.*/
+/* Name 5 such bowlers who bowled the least number of overs in 2018.*/
+/* Which team scored the maximum number of runs in 2019?*/
+/* Name the Batsmen who has hit maximum half centuries, both the years combined*/ 
 
 📊 Key Scouting Insights
 
@@ -42,9 +42,7 @@ WHERE S_R >= 130 -- Strike Rate constraint
 WHERE E_R < 7    -- Economy Rate constraint
 
 
-💻 Sample Query Highlight
-
-Querying Multi-Season Run Leaders (2018-2019)
+💻  Sample Query 
 
 SELECT 
     b18.Player, 
@@ -63,11 +61,17 @@ LIMIT 1;
 ├── presentations/            # HTML slides showcasing analytical findings
 └── README.md                 # Project summary and documentation
 
+Tools used:
+MySQL Workbench, 
+SQL, 
+Canva
 
 🚀 How to Run the Queries
 
-Set up the Schema: Clone this repository and import the raw .csv datasets into your MySQL environment (e.g., under a database named IPL_analysis).
+Set up the Schema: Import the raw .csv datasets into your MySQL Workbench (e.g., under a database named IPL_analysis).
+SQL Analysis 
+Run the .sql files found inside the sql_scripts/ directory in sequence.
+Modify the performance filters (e.g., changing E_R < 7 to E_R < 8.5) to test alternative coaching
+Insight Generation 
+Data Storyteling 
 
-Execute Scripts: Run the .sql files found inside the sql_scripts/ directory in sequence.
-
-Evaluate Results: Modify the performance filters (e.g., changing E_R < 7 to E_R < 8.5) to test alternative coaching scouting strategies!
